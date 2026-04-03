@@ -1,14 +1,21 @@
 
 
-function App() {
-  const [transactions, setTransactions] = useState([]);
+import TransactionForm from "./components/form";
 
+function App() {
   return (
-    <div className="min-h-screen overflow-x-hidden ">
-      <main>
-      </main>
+    <div>
+      <div >
+
+        <h1>
+          Expense Tracker
+        </h1>
+
+        <TransactionForm />
+
+      </div>
     </div>
   );
 }
 
-export default App
+export default App;
