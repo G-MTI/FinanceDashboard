@@ -5,7 +5,7 @@ const form = () => {
     const {addTransaction} = useAppContext();
 
     const [utile, setUtile] = useState("");
-    const [type, setType] = useState("uscita");
+    const [type, setType] = useState("Expense");
     const [category, setCategory] = useState("");
 
     const handleInvio = (x) => {
@@ -23,7 +23,7 @@ const form = () => {
         addTransaction(newTransaction);
 
         setUtile("");
-        setType("uscita");
+        setType("Expense");
         setCategory("");
     };
 
@@ -44,8 +44,8 @@ const form = () => {
                 onChange={(x) => setType(x.target.value)}
                 className=""
             >
-                <option value="uscita">Expense</option>
-                <option value="entrata">Income</option>
+                <option value="Expense">Expense</option>
+                <option value="Income">Income</option>
             </select>
             <input
                 type="text"
@@ -56,7 +56,7 @@ const form = () => {
             />
             <button 
                 type="submit"
-                className=""
+                className="bg-blue-500"
             >
                 Add Transaction
             </button>

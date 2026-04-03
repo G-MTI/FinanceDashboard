@@ -1,6 +1,8 @@
 
 
-import TransactionForm from "./components/form";
+
+import Form from "./components/form";
+import List from "./components/list";
 
 function App() {
   return (
@@ -11,7 +13,8 @@ function App() {
           Expense Tracker
         </h1>
 
-        <TransactionForm />
+        <Form/>
+        <List/>
 
       </div>
     </div>
