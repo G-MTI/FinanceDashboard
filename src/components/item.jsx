@@ -18,7 +18,7 @@ const Item = ({ transaction }) => {
       <div className="flex">
         <p
           className={
-            transaction.type === "expense"
+            transaction.type === "Expense"
               ? "text-red-500"
               : "text-green-500"
           }
