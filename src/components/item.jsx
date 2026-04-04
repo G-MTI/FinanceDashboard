@@ -3,12 +3,12 @@ import { useAppContext } from "../context/AppContext";
 const Item = ({ transaction }) => {
   const { delTransaction } = useAppContext();
 
-  return (
+  return (   
     <div id="item" className="flex">
 
       <div className="flex">
         <p id="type" className="flex">
-          {transaction.type}
+          {transaction.type} 
         </p>
         <p id="category" className="flex">
           {transaction.category}

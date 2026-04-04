@@ -1,19 +1,20 @@
 
 import { useState, createContext, useContext } from "react";
+import { setLocalStorage } from "../hooks/setLocalStorage";
 
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-    const [transactions, setTransactions] = useState([]);
-
+    const [transactions, setTransactions] = setLocalStorage("transactions", NaN);
+    
     const addTransaction = (transaction) => {
         setTransactions((prev) => [...prev, transaction]);
     };
-
+    
     const delTransaction = (id) => {
         setTransactions((prev) => 
             prev.filter((x) => x.id !== id)
-        );
+        ); 
     };
 
     return (
