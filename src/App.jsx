@@ -3,6 +3,8 @@
 
 import Form from "./components/form";
 import List from "./components/list";
+import Budget from "./components/budget";
+import Chart from "./components/chart";
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
 
         <Form/>
         <List/>
+        <Budget/>
+        <Chart/>
+
 
       </div>
     </>

@@ -6,7 +6,7 @@ const form = () => {
 
     const [utile, setUtile] = useState("");
     const [type, setType] = useState("Expense");
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState("Grochery");
 
     const handleInvio = (x) => {
         x.preventDefault();
@@ -23,7 +23,7 @@ const form = () => {
         addTransaction(newTransaction);
 
         setUtile("");
-        setType("Expense");
+        setType("");
         setCategory("");
     };
 
@@ -47,13 +47,20 @@ const form = () => {
                 <option value="Expense">Expense</option>
                 <option value="Income">Income</option>
             </select>
-            <input
-                type="text"
-                placeholder="category"
+            <select
                 value={category}
-                onChange={(x) => setCategory(x.target.value)}
+                onChange={(c) => setCategory(c.target.value)}
                 className=""
-            />
+            >
+                <option value="Grochery" color="#034200">Grochery</option>
+                <option value="Eating Out" >Eating Out</option>
+                <option value="Transport">Transport</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Gifts">Gifts</option>
+            </select>
+
+    
             <button 
                 type="submit"
                 className="bg-blue-500"
