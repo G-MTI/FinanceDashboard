@@ -2,16 +2,16 @@ import { useState } from "react";
 import { useAppContext } from "../context/AppContext";
 
 const form = () => {
-    const {addTransaction} = useAppContext();
+    const {addTransaction, categories} = useAppContext();
 
     const [utile, setUtile] = useState("");
-    const [type, setType] = useState("Expense");
-    const [category, setCategory] = useState("Grochery");
+    const [type, setType] = useState("");
+    const [category, setCategory] = useState("");
 
     const handleInvio = (x) => {
         x.preventDefault();
 
-        if (!utile || !category) return;
+        if (!utile || !type || !category) return;
 
         const newTransaction = {
             id: Date.now(),
@@ -27,6 +27,8 @@ const form = () => {
         setCategory("");
     };
 
+    console.log(categories);
+
     return (
         <form 
         onSubmit={handleInvio} 
@@ -34,7 +36,7 @@ const form = () => {
         >
             <input
                 type="number"
-                placeholder="amount"
+                placeholder="Amount"
                 value={utile}
                 onChange={(x) => setUtile(x.target.value)}
                 className=""
@@ -44,6 +46,7 @@ const form = () => {
                 onChange={(x) => setType(x.target.value)}
                 className=""
             >
+                <option value="" disabled>Type</option>
                 <option value="Expense">Expense</option>
                 <option value="Income">Income</option>
             </select>
@@ -52,12 +55,13 @@ const form = () => {
                 onChange={(c) => setCategory(c.target.value)}
                 className=""
             >
-                <option value="Grochery" color="#034200">Grochery</option>
-                <option value="Eating Out" >Eating Out</option>
-                <option value="Transport">Transport</option>
-                <option value="Clothing">Clothing</option>
-                <option value="Utilities">Utilities</option>
-                <option value="Gifts">Gifts</option>
+                <option value="" disabled>Category</option>
+
+                {(categories || []).map((x, index) => (
+                    <option key={index} value={x.categoryName}>
+                        {x.categoryName}
+                    </option>
+                ))}
             </select>
 
     
@@ -65,7 +69,7 @@ const form = () => {
                 type="submit"
                 className="bg-blue-500"
             >
-                Add Transaction
+                Add transaction
             </button>
         </form>
     );

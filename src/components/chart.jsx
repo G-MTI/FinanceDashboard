@@ -66,7 +66,7 @@ const Charts = () => {
             <div className="flex justify-around">
                 <div>
                     <h3>Expense by category</h3>
-                    <PieChart width={300} height={300}>
+                    <PieChart width={300} height={400}>
                         <Pie
                             data={categoryExpenseData}
                             cx="50%"
@@ -80,7 +80,7 @@ const Charts = () => {
                     </PieChart>
                 </div>
 
-                <BarChart width={400} height={300} data={data}>
+                <BarChart width={300} height={300} data={data}>
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
@@ -89,7 +89,7 @@ const Charts = () => {
 
                 <div>
                     <h3>Income by category</h3>
-                    <PieChart width={300} height={300}>
+                    <PieChart width={300} height={400}>
                         <Pie
                             data={categoryIncomeData}
                             cx="50%"

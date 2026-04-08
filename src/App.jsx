@@ -1,10 +1,12 @@
 
 
 
+
 import Form from "./components/form";
 import List from "./components/list";
 import Budget from "./components/budget";
 import Chart from "./components/chart";
+import CategoryForm from "./components/settingsForm";
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         <List/>
         <Budget/>
         <Chart/>
+        <CategoryForm/>
 
 
       </div>
