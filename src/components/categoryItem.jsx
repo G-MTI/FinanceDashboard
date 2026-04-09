@@ -4,21 +4,19 @@ const categoryItem = ({ category }) => {
   const { delTransaction } = useAppContext();
 
   return (   
-    <div id="item" className="flex">
+    <div id="item" className="flex gap-4">
  
-      <div className="flex">
+      <div className="flex gap-4">
         <p id="type" className="flex">
           {category.categoryName} 
         </p>
-        <p id="category" className="flex">
-          {category.categoryColor}
-        </p>
+        <span className="w-5 h-5 rounded-full"style={{ backgroundColor: category.categoryColor }} ></span>
       </div>
 
       <div className="flex">
         <button
           onClick={() => delTransaction(category.id)}
-          className="flex bg-red-500"
+          className="flex text-red-500 font-bold rounded-3xl"
         >
           X
         </button>

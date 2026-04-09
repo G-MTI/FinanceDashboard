@@ -58,12 +58,11 @@ const Charts = () => {
 
     console.log({categoryExpense });
 
-    return (
-        <div>
-            <h1>Charts</h1>
-            <div className="flex justify-around">
+    return ( <section id="charts" className="pt-32">
+            <h1 className="font-bold text-3xl flex justify-center mb-8">Charts</h1>
+            <div className="flex flex-wrap justify-center gap-8">
                 <div>
-                    <h3>Expense by category</h3>
+                    <h3 className="flex justify-center">Expense by category</h3>
                     <PieChart width={300} height={400}>
                         <Pie
                             data={categoryExpenseData}
@@ -86,7 +85,7 @@ const Charts = () => {
                 </BarChart>
 
                 <div>
-                    <h3>Income by category</h3>
+                    <h3 className="flex justify-center">Income by category</h3>
                     <PieChart width={300} height={400}>
                         <Pie
                             data={categoryIncomeData}
@@ -101,7 +100,7 @@ const Charts = () => {
                     </PieChart>
                 </div>
             </div>
-        </div>
+        </section>
       );
 };
 

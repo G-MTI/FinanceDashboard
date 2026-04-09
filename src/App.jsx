@@ -1,32 +1,32 @@
 
-
-
-
 import Form from "./components/form";
 import List from "./components/list";
 import Budget from "./components/budget";
 import Chart from "./components/chart";
 import CategoryForm from "./components/settingsForm";
 import CategoryList from "./components/categoryList";
+import Navbar from "./components/navbar";
 
 function App() {
   return (
     <>
-      <div >
+      <Navbar />
+      <div className=" min-h-screen flex justify-center items-center overflow-hidden">
+        <div>
+      
 
-        <h1>
-          Expense Tracker
-        </h1>
-
+        <Budget/>
+        </div>
+        </div>
         <Form/>
         <List/>
-        <Budget/>
+        
         <Chart/>
         <CategoryForm/>
         <CategoryList/>
 
 
-      </div>
+      
     </>
   );
 }

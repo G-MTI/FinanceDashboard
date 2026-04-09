@@ -29,22 +29,23 @@ const form = () => {
 
     console.log(categories);
 
-    return (
+    return ( <section id="form" className="pt-32 pb-8">
+        <h1 className="font-bold text-3xl flex justify-center">Transaction</h1>
         <form 
-        onSubmit={handleInvio} 
-            className=""
+        onSubmit={handleInvio}
+        className="flex justify-center gap-8 mt-8"
         >
             <input
                 type="number"
                 placeholder="Amount"
                 value={utile}
                 onChange={(x) => setUtile(x.target.value)}
-                className=""
+                className="border-1 border-gray-300 p-4 rounded-3xl"
             />
             <select
                 value={type}
                 onChange={(x) => setType(x.target.value)}
-                className=""
+                className="border-1 border-gray-300 p-4 rounded-3xl"
             >
                 <option value="" disabled>Type</option>
                 <option value="Expense">Expense</option>
@@ -53,7 +54,7 @@ const form = () => {
             <select
                 value={category}
                 onChange={(c) => setCategory(c.target.value)}
-                className=""
+                className="border-1 border-gray-300 p-4 rounded-3xl"
             >
                 <option value="" disabled>Category</option>
 
@@ -67,11 +68,12 @@ const form = () => {
     
             <button 
                 type="submit"
-                className="bg-blue-500"
+                className="bg-blue-500 p-4 rounded-3xl text-white"
             >
                 Add transaction
             </button>
         </form>
+        </section>
     );
     
 };

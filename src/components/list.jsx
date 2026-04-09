@@ -6,9 +6,9 @@ const list = () => {
     const { transactions } = useAppContext();
 
     return (
-        <div className="">
+        <div className=" flex justify-center">
             {transactions.length === 0 && (
-                <p className="">No transactions</p>
+                <p className="flex justify-center">No transactions</p>
             )}
 
             {transactions.map((t) => (

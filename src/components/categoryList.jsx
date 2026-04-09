@@ -6,7 +6,7 @@ const categoryList = () => {
     const { categories } = useAppContext();
 
     return (
-        <div className="">
+        <div className="flex justify-center pb-32">
             {categories.length === 0 && (
                 <p className="">No categories</p>
             )}

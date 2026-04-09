@@ -4,18 +4,19 @@ const Item = ({ transaction }) => {
   const { delTransaction } = useAppContext();
 
   return (   
-    <div id="item" className="flex">
+    <div id="item" className="flex gap-4">
 
-      <div className="flex">
-        <p id="type" className="flex">
-          {transaction.type} 
-        </p>
+      <div className="flex flex gap-4">
+        
         <p id="category" className="flex">
           {transaction.category}
         </p>
+        <p id="type" className="flex">
+          {transaction.type} 
+        </p>
       </div>
 
-      <div className="flex">
+      <div className="flex gap-4">
         <p
           className={
             transaction.type === "Expense"
@@ -29,7 +30,7 @@ const Item = ({ transaction }) => {
 
         <button
           onClick={() => delTransaction(transaction.id)}
-          className="flex bg-red-500"
+          className="flex text-red-500 font-bold rounded-3xl"
         >
           X
         </button>
