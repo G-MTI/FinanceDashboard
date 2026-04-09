@@ -28,13 +28,13 @@ const Budget = () => {
                     </p>
                 </div>
                
-                <div className=" flex justify-center gap-4 font-bold mt-8 mb-8">
+                <div className=" flex flex-wrap justify-center gap-4 font-bold mt-8 mb-8">
                     <p className=" mb-2 text-2xl">Total Income: {totalIncome}€</p>
                     <p className="text-2xl">Total Expences: {totalExpense}€</p>
                 </div>
             </div>
 
-            <div className="flex justify-center gap-8">
+            <div className="flex flex-wrap justify-center gap-8">
                 <a href="#form" className="bg-blue-500 p-4 rounded-3xl text-white font-bold">
                     See transactions
                 </a>
