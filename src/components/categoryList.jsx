@@ -8,7 +8,7 @@ const categoryList = () => {
     return (
         <div className="flex-row justify-center pb-32">
             {categories.length === 0 && (
-                <p className="justify-center">No categories</p>
+                <p className="flex justify-center">No categories</p>
             )}
 
             {categories.map((c) => (
