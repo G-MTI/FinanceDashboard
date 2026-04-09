@@ -33,7 +33,7 @@ const form = () => {
         <h1 className="font-bold text-3xl flex justify-center">Transaction</h1>
         <form 
         onSubmit={handleInvio}
-        className="flex justify-center gap-8 mt-8"
+        className="flex flex-wrap justify-center gap-8 mt-8"
         >
             <input
                 type="number"

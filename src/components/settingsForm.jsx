@@ -29,7 +29,7 @@ const categoryForm = () => {
         <h1 className="font-bold text-3xl flex justify-center mb-8">Category list</h1>
         <form 
         onSubmit={handleInvio} 
-        className="flex justify-center items-center gap-8"
+        className="flex flex-wrap justify-center items-center gap-8"
         >   
             <input
                 type="text"
