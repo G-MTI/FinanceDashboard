@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className=" min-h-screen flex justify-center items-center overflow-hidden">
+      <div className=" min-h-screen flex justify-center items-center overflow-hidden max-w-screen">
         <div>
       
 
