@@ -11,9 +11,7 @@ import {
 } from "recharts";
 
 const Charts = () => {
-    const { transactions } = useAppContext();
-
-    const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#FF6384", "#9966FF"];
+    const { transactions, categories } = useAppContext();
 
     const income = transactions
         .filter((t) => t.type === "Income")
@@ -35,7 +33,7 @@ const Charts = () => {
     const categoryExpenseData = Object.keys(categoryExpense).map((key, index) => ({
         name: key,
         value: categoryExpense[key],
-        fill: colors[index % colors.length],
+        fill: categories.find((c) => c.categoryName === key)?.categoryColor || "#a5a5a5",
     }));
 
     const categoryIncome = transactions
@@ -50,7 +48,7 @@ const Charts = () => {
     const categoryIncomeData = Object.keys(categoryIncome).map((key, index) => ({
         name: key,
         value: categoryIncome[key],
-        fill: colors[index % colors.length],
+        fill: categories.find((c) => c.categoryName === key)?.categoryColor || "#a5a5a5",
     }));
 
     const data = [

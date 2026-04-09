@@ -17,6 +17,9 @@ export const AppProvider = ({ children }) => {
         setTransactions((prev) => 
             prev.filter((x) => x.id !== id)
         ); 
+        setCategories((prev) => 
+            prev.filter((x) => x.id !== id)
+        );
     };
 
     const addCategory = (categories) => {

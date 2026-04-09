@@ -7,6 +7,7 @@ import List from "./components/list";
 import Budget from "./components/budget";
 import Chart from "./components/chart";
 import CategoryForm from "./components/settingsForm";
+import CategoryList from "./components/categoryList";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Budget/>
         <Chart/>
         <CategoryForm/>
+        <CategoryList/>
 
 
       </div>

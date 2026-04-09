@@ -13,6 +13,7 @@ const categoryForm = () => {
         if (!categoryName || !categoryColor) return;
 
         const newCategory = {
+            id: Date.now(),
             categoryName,
             categoryColor,
         };
