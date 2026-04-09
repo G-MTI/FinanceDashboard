@@ -6,7 +6,7 @@ const list = () => {
     const { transactions } = useAppContext();
 
     return (
-        <div className=" flex justify-center">
+        <div className=" flex-row justify-center">
             {transactions.length === 0 && (
                 <p className="flex justify-center">No transactions</p>
             )}

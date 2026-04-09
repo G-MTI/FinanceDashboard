@@ -4,9 +4,9 @@ const Item = ({ transaction }) => {
   const { delTransaction } = useAppContext();
 
   return (   
-    <div id="item" className="flex gap-4">
+    <div id="item" className="flex justify-center mb-2 gap-4">
 
-      <div className="flex flex gap-4">
+      <div className="flex gap-4">
         
         <p id="category" className="flex">
           {transaction.category}

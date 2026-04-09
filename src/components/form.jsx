@@ -68,7 +68,7 @@ const form = () => {
     
             <button 
                 type="submit"
-                className="bg-blue-500 p-4 rounded-3xl text-white"
+                className="bg-blue-500 p-4 rounded-3xl text-white font-bold"
             >
                 Add transaction
             </button>

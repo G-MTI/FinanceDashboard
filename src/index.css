@@ -2,14 +2,6 @@
 
 @theme {  
   --color-background: #202020;
-  --color-white: #f1f2eb;
-  --color-primary: #FFB3FC;
-  --color-secondary: #1f2830;
-  --color-muted: #252e37;
-
-  --color-highlight: #f5a623; 
-  --color-surface: #la2329;
-  --color-border: #333333;
 }
 
 @layer base{
