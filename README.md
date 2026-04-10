@@ -1,6 +1,7 @@
 # Expense Tracker
 
 A simple web app to track income and expenses and to visualize them with charts.
+For reviewers you need to add category befor try to add a transaction
 
 Users can:
 - Add transactions (income / expense)
