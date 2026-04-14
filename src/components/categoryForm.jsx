@@ -48,8 +48,8 @@ const categoryForm = () => {
             />
             </div>
     
-            <button 
-                type="submit"
+            <button  
+                type="submit" 
                 className="bg-blue-500 p-4 rounded-3xl text-white font-bold"
             >
                 Add category

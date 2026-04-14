@@ -53,11 +53,11 @@ const Charts = () => {
 
     const data = [
         { name: "Income", amount: income, fill: "#22c55e" },
-        { name: "Expense", amount: expense, fill: "#ef4444" },
+        { name: "Expense", amount: expense, fill: "#ef4444" }, 
     ];
 
     console.log({categoryExpense });
-
+ 
     return ( <section id="charts" className="pt-32">
             <h1 className="font-bold text-3xl flex justify-center mb-8">Charts</h1>
             {transactions.length === 0 && (

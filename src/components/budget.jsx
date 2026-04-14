@@ -15,7 +15,7 @@ const Budget = () => {
         };
     });
 
-
+ 
     const budget = totalIncome - totalExpense;
 
     return (
