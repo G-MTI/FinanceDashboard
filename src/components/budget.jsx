@@ -19,8 +19,8 @@ const Budget = () => {
     const budget = totalIncome - totalExpense;
 
     return (
-        <div>
-            <div className="flex-col items-center justify-center gap-8 mb-4">
+        <div className=" min-h-screen flex flex-col justify-center items-center overflow-hidden max-w-screen">
+            <div className="flex flex-col items-center justify-center mb-4">
                 <div className="flex justify-center items-center gap-4">
                     <p className="text-5xl font-bold">Balance:</p>
                     <p className={budget >= 0 ? "text-green-500 font-bold text-5xl" : "text-red-500 font-bold text-3xl"}>
@@ -28,7 +28,7 @@ const Budget = () => {
                     </p>
                 </div>
                
-                <div className=" flex flex-wrap justify-center gap-4 font-bold mt-8 mb-8">
+                <div className=" flex justify-center gap-8 font-bold mt-8 mb-4">
                     <p className=" mb-2 text-2xl">Total Income: {totalIncome}€</p>
                     <p className="text-2xl">Total Expences: {totalExpense}€</p>
                 </div>

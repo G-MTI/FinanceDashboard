@@ -60,46 +60,52 @@ const Charts = () => {
 
     return ( <section id="charts" className="pt-32">
             <h1 className="font-bold text-3xl flex justify-center mb-8">Charts</h1>
-            <div className="flex flex-wrap justify-center gap-8">
-                <div>
-                    <h3 className="flex justify-center">Expense by category</h3>
-                    <PieChart width={300} height={400}>
-                        <Pie
-                            data={categoryExpenseData}
-                            cx="50%"
-                            cy="50%"
-                            outerRadius={100}
-                            dataKey="value"
-                            label
-                        />  
-                        <Tooltip />
-                        <Legend />
-                    </PieChart>
-                </div>
+            {transactions.length === 0 && (
+                <p className="flex justify-center">No transaction to show</p>
+            )}
+            {transactions.length !==0 && (
+                <div className="flex flex-wrap justify-center gap-8">
+                    <div>
+                        <h3 className="flex justify-center">Expense by category</h3>
+                        <PieChart width={300} height={400}>
+                            <Pie
+                                data={categoryExpenseData}
+                                cx="50%"
+                                cy="50%"
+                                outerRadius={100}
+                                dataKey="value"
+                                label
+                            />  
+                            <Tooltip />
+                            <Legend />
+                        </PieChart>
+                    </div>
 
-                <BarChart width={300} height={300} data={data}>
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Bar dataKey="amount" />
-                </BarChart>
-
-                <div>
-                    <h3 className="flex justify-center">Income by category</h3>
-                    <PieChart width={300} height={400}>
-                        <Pie
-                            data={categoryIncomeData}
-                            cx="50%"
-                            cy="50%"
-                            outerRadius={100}
-                            dataKey="value"
-                            label
-                        />  
+                    <BarChart width={300} height={300} data={data}>
+                        <XAxis dataKey="name" />
+                        <YAxis />
                         <Tooltip />
-                        <Legend />
-                    </PieChart>
+                        <Bar dataKey="amount" />
+                    </BarChart>
+
+                    <div>
+                        <h3 className="flex justify-center">Income by category</h3>
+                        <PieChart width={300} height={400}>
+                            <Pie
+                                data={categoryIncomeData}
+                                cx="50%"
+                                cy="50%"
+                                outerRadius={100}
+                                dataKey="value"
+                                label
+                            />  
+                            <Tooltip />
+                            <Legend />
+                        </PieChart>
+                    </div>
                 </div>
-            </div>
+            )}
+            
         </section>
       );
 };

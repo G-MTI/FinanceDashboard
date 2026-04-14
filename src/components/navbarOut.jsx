@@ -1,7 +1,8 @@
 
 import { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
 
-const Navbar = () =>{
+const NavbarOut = () =>{
 
 
     const [isScrolled, setIsScrolled] = useState(false);
@@ -21,9 +22,13 @@ const Navbar = () =>{
         <header className={` fixed top-0 left-0 right-0 py-6 ${isScrolled ? "glass-transparent" : "bg-transparent"} z-50`}>
             <nav className="max-w-screen container flex items-center left-0 px-12 right-0 top-0 justify-between mx-auto">
                 {/*schiaccio cambia tema sito?*/}
-                <a href="#" className="text-5xl font-bold text-center">
-                    Expense Tracker
-                </a>
+                
+                <Link to="/" className="flex justify-center ">
+                    <p className="text-5xl font-bold text-center">
+                        Expense Tracker
+                    </p>
+                
+                </Link>
 
                 {/*Desktop*/}
                 
@@ -35,4 +40,4 @@ const Navbar = () =>{
     )
 }
 
-export default Navbar;
+export default NavbarOut;

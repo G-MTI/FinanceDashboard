@@ -10,7 +10,7 @@ export const AppProvider = ({ children }) => {
     const [settings, setSettings] = setLocalStorage("settings", [])
     
     const addTransaction = (transaction) => {categories
-        setTransactions((prev) => [...prev, transaction]);
+        setTransactions((prev) => [transaction, ...prev]);
     };
     
     const delTransaction = (id) => {
@@ -32,12 +32,17 @@ export const AppProvider = ({ children }) => {
         setSettings((newSettings));
     };
 
+    const delAllTransactions = (transaction) => {
+        setTransactions([]);
+    }
+
     return (
         <AppContext.Provider
             value={{
                 transactions,
                 addTransaction,
                 delTransaction,
+                delAllTransactions,
 
                 categories,
                 addCategory,
