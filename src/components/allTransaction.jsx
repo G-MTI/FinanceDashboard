@@ -37,34 +37,45 @@ const AllTransaction = () => {
 
     return (
         <div className=" flex flex-col justify-center">
-            <div className="flex flex-row justify-center gap-8">
+            <div className="flex flex-wrap justify-center gap-8">
                 <input
                     type="text"
                     placeholder = "Search by category or by type"
                     value={search}
                     onChange={(s) => setSearch(s.target.value)}
-                    className="flex border-1 border-gray-300 p-4 rounded-3xl mb-8"
+                    className="flex border-1 border-gray-300 p-4 rounded-3xl "
                 />
-                <button onClick={()=> setSort(sort === "recent" ? "oldest" : "recent")}>
-                    Sort: {sort === "recent" ? "Newest first" : "Oldest first"}
-                </button>
+                <div>
+                    <select
+                        value={sort}
+                        onChange={(x) => setSort(sort === "recent" ? "oldest" : "recent")}
+                        className="border-1 border-gray-300 p-4.5 rounded-3xl"
+                    >
+                        <option value="recent">Newest first</option>
+                        <option value="oldest">Oldest first</option>
+                    </select>
+                </div>
             
             
                 {transactions.length !== 0 && (
-                    <div className="flex justify-center mb-8">
+                    <div className="flex justify-center">
                         <button onClick={delAllTransactions} className=" bg-[var(--light-red)] hover:bg-[var(--red)] text-white font-bold rounded-3xl p-4">
                             Clear transactions
                         </button>
                     </div>
+                    
                 )}
             </div>
-
+            
             {filteredTransactions.length === 0 && (
-                <p className="flex justify-center">No transactions</p>
+                <p className="flex justify-center mt-8">No transactions</p>
             )}
-            {filteredTransactions.map((t) => (
-                <Item key={t.id} transaction={t} />
-            ))}
+            <div className="mt-8">
+                {filteredTransactions.map((t) => (
+                    <Item key={t.id} transaction={t} />
+                ))}
+            </div>
+            
         </div>
     );
 }
