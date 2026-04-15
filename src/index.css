@@ -1,7 +1,11 @@
 @import "tailwindcss";
 
-@theme {  
+:root {
   --color-background: #202020;
+  --button: #2563eb;
+  --hover: #3C83F6;
+  --red: #EB1E1E;
+  --light-red: #EF4343;
 }
 
 @layer base{

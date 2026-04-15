@@ -35,10 +35,10 @@ const Budget = () => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-8">
-                <a href="#form" className="bg-blue-500 p-4 rounded-3xl text-white font-bold">
+                <a href="#form" className="bg-[var(--button)] hover:bg-[var(--hover)] p-4 rounded-3xl text-white font-bold">
                     See transactions
                 </a>
-                <a href="#charts" className="bg-blue-500 p-4 rounded-3xl text-white font-bold">
+                <a href="#charts" className="bg-[var(--button)] hover:bg-[var(--hover)] p-4 rounded-3xl text-white font-bold">
                     See charts
                 </a>
             </div>

@@ -16,7 +16,7 @@ const categoryItem = ({ category }) => {
       <div className="flex">
         <button
           onClick={() => delTransaction(category.id)}
-          className="flex text-red-500 font-bold rounded-3xl"
+          className="flex text-red-500 font-bold rounded-3xl cursor-pointer"
         >
           X
         </button>

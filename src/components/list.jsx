@@ -19,8 +19,8 @@ const List = () => {
             ))}
 
         <Link to="/allTransactions" className="flex justify-center mt-8">
-            <button className="bg-blue-500 p-4 rounded-3xl text-white font-bold">
-                See All Transactions
+            <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold">
+                See all transactions
             </button>
                 
         </Link>

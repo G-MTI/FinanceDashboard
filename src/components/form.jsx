@@ -11,7 +11,12 @@ const form = () => {
     const handleInvio = (x) => {
         x.preventDefault();
 
-        if (!utile || !type || !category) return;
+
+
+        if (!utile || !type || !category) {
+            alert("Please fill in all fields");
+            return;
+        } ;
 
         const newTransaction = {
             id: Date.now(),
@@ -68,7 +73,7 @@ const form = () => {
     
             <button 
                 type="submit"
-                className="bg-blue-500 p-4 rounded-3xl text-white font-bold"
+                className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold"
             >
                 Add transaction
             </button>

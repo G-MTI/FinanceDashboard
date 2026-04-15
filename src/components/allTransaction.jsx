@@ -1,27 +1,69 @@
 
 import { useAppContext } from "../context/AppContext";
 import Item from "./item";
+import { useState } from "react";
+
 
 const AllTransaction = () => {
     const { delAllTransactions} = useAppContext();
     const { transactions } = useAppContext();
+    const [search, setSearch] = useState("");
+    const [sort, setSort] = useState("recent")
+
+    let sortedTransactions = [];
+    if (transactions) {
+        sortedTransactions = [...transactions];
+    } else {
+        sortedTransactions = [];
+    }
+
+    sortedTransactions.sort((x, y) => {
+        if (sort === "recent"){
+            return y.id - x.id;
+        } else {
+            return x.id - y.id;
+        }
+    });
+
+    const filteredTransactions = (sortedTransactions || []).filter((x) =>
+        x.category.toLowerCase().includes(search.toLowerCase()) ||
+        x.type.toLowerCase().includes(search.toLowerCase())||
+        new Date(x.id).toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        }).toLowerCase().includes(search.toLowerCase())
+    );
 
     return (
-        <div className=" flex-row justify-center">
+        <div className=" flex flex-col justify-center">
+            <div className="flex flex-row justify-center gap-8">
+                <input
+                    type="text"
+                    placeholder = "Search by category or by type"
+                    value={search}
+                    onChange={(s) => setSearch(s.target.value)}
+                    className="flex border-1 border-gray-300 p-4 rounded-3xl mb-8"
+                />
+                <button onClick={()=> setSort(sort === "recent" ? "oldest" : "recent")}>
+                    Sort: {sort === "recent" ? "Newest first" : "Oldest first"}
+                </button>
             
-            {transactions.length === 0 && (
+            
+                {transactions.length !== 0 && (
+                    <div className="flex justify-center mb-8">
+                        <button onClick={delAllTransactions} className=" bg-[var(--light-red)] hover:bg-[var(--red)] text-white font-bold rounded-3xl p-4">
+                            Clear transactions
+                        </button>
+                    </div>
+                )}
+            </div>
+
+            {filteredTransactions.length === 0 && (
                 <p className="flex justify-center">No transactions</p>
             )}
-            {transactions.length !== 0 && (
-                <button onClick={delAllTransactions} className="bg-red-500 text-white p-2 rounded">
-                    Clear Transactions
-                </button>
-            )}
-            
-            {transactions.map((t) => (
-                <>
-                    <Item key={t.id} transaction={t} />
-                </>
+            {filteredTransactions.map((t) => (
+                <Item key={t.id} transaction={t} />
             ))}
         </div>
     );

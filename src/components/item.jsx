@@ -14,6 +14,14 @@ const Item = ({ transaction }) => {
         <p id="type" className="flex">
           {transaction.type} 
         </p>
+        <p>{new Date(transaction.id).toLocaleDateString(
+          "en-GB",
+          {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          }
+        )}</p>
       </div>
 
       <div className="flex gap-4">
@@ -30,7 +38,7 @@ const Item = ({ transaction }) => {
 
         <button
           onClick={() => delTransaction(transaction.id)}
-          className="flex text-red-500 font-bold rounded-3xl"
+          className="flex text-red-500 font-bold rounded-3xl cursor-pointer"
         >
           X
         </button>

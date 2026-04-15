@@ -6,7 +6,7 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
     const [transactions, setTransactions] = setLocalStorage("transactions", []);
-    const [categories, setCategories] = setLocalStorage("categories", []);
+    const [categories, setCategories] = setLocalStorage("categories", [{ id: 1775810355090, categoryName: "Food", categoryColor: "#ff7800" },{ id: 1775810370839, categoryName: "Payment", categoryColor: "#2ec27e" }]);
     const [settings, setSettings] = setLocalStorage("settings", [])
     
     const addTransaction = (transaction) => {categories
@@ -14,12 +14,16 @@ export const AppProvider = ({ children }) => {
     };
     
     const delTransaction = (id) => {
-        setTransactions((prev) => 
-            prev.filter((x) => x.id !== id)
-        ); 
-        setCategories((prev) => 
-            prev.filter((x) => x.id !== id)
-        );
+        const confirm = window.confirm("Are you sure you want to delete this item?");
+
+        if (confirm) {
+              setTransactions((prev) => 
+                  prev.filter((x) => x.id !== id)
+              ); 
+              setCategories((prev) => 
+                  prev.filter((x) => x.id !== id)
+              );
+          }
     };
 
     const addCategory = (categories) => {
@@ -32,8 +36,11 @@ export const AppProvider = ({ children }) => {
         setSettings((newSettings));
     };
 
-    const delAllTransactions = (transaction) => {
-        setTransactions([]);
+    const delAllTransactions = () => {
+        const confirm = window.confirm("Are you sure you want to delete all items? - You cannot undo this action!");
+        if (confirm){
+            setTransactions([]);
+        }
     }
 
     return (
