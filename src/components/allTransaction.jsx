@@ -2,6 +2,7 @@
 import { useAppContext } from "../context/AppContext";
 import Item from "./item";
 import { useState } from "react";
+import jsPDF from "jspdf";
 
 
 const AllTransaction = () => {
@@ -34,6 +35,35 @@ const AllTransaction = () => {
           year: "numeric",
         }).toLowerCase().includes(search.toLowerCase())
     );
+
+    const downloadPDF = () => {
+        const doc = new jsPDF();
+
+        doc.setFontSize(16);
+        doc.setFont("helvetica", "bold");
+
+        doc.text("TRANSACTION REPORT", doc.internal.pageSize.getWidth()/2, 20, 
+            {align: "center" });
+
+        doc.setFontSize(13);
+        doc.setFont("helvetica", "normal");
+
+        filteredTransactions.forEach((t, index) => {
+            doc.text(
+                `${new Date(t.id).toLocaleDateString("en-GB",
+                    {
+                      day: "2-digit",
+                      month: "short",
+                      year: "numeric",
+                    }
+                )} - ${t.type} - ${t.category} - €${t.utile}`,
+                10,
+                30 + index * 6
+            );
+        });
+      
+        doc.save("transactions.pdf");
+    };  
 
     return (
         <div className=" flex flex-col justify-center">
@@ -75,8 +105,15 @@ const AllTransaction = () => {
                     <Item key={t.id} transaction={t} />
                 ))}
             </div>
+            <button
+                onClick={downloadPDF}
+                className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 mt-4 rounded-3xl text-white font-bold"
+            >
+                Download PDF
+            </button>
             
         </div>
+
     );
 }
 
