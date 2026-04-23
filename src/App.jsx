@@ -9,11 +9,39 @@ import Navbar from "./components/navbar";
 import {Routes, Route} from "react-router-dom";
 import AllTransaction from "./components/allTransaction";
 import NavbarOut from "./components/navbarOut";
+import Home from "./components/home";
+import Login from "./components/login";
+import Register from "./components/register";
 
 function App() {
   return (
       <Routes>
         <Route path="/" element={
+          <>
+            <Navbar />
+            <Home/>
+          </>
+        }/>
+
+        <Route path="/login" element={
+          <>
+            <NavbarOut />
+            <div className=" min-h-screen flex justify-center items-center overflow-hidden max-w-screen mt-32">
+              <Login/> 
+            </div>
+          </>
+        }/>
+
+        <Route path="/register" element={
+          <>
+            <NavbarOut />
+            <div className=" min-h-screen flex justify-center items-center overflow-hidden max-w-screen mt-32">
+              <Register/> 
+            </div>
+          </>
+        }/>
+
+        <Route path="/app" element={
           <>
             <Navbar />
             <div >
@@ -28,6 +56,7 @@ function App() {
 
             </>
         }/>
+
         <Route path="/allTransactions" element={
           <>
           <NavbarOut />

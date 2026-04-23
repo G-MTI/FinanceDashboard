@@ -1,8 +1,19 @@
 
 import { useState, useEffect } from "react";
+import { useAppContext } from "../context/AppContext";
+import { useNavigate } from "react-router-dom";
+
+
 
 const Navbar = () =>{
 
+    const navigate = useNavigate();
+const { logout } = useAppContext();
+
+const handleLogout = () => {
+  logout();
+  navigate("/");
+};
 
     const [isScrolled, setIsScrolled] = useState(false);
 
@@ -24,6 +35,9 @@ const Navbar = () =>{
                 <a href="#" className="text-5xl font-bold text-center">
                     Expense Tracker
                 </a>
+                <button onClick={handleLogout}>
+                    Logout
+                </button>
 
                 {/*Desktop*/}
                 
