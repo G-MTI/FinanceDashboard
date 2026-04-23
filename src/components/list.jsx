@@ -8,6 +8,8 @@ const List = () => {
 
     const visibleTransactions = transactions.slice (0, 6);
 
+    console.log("transactions:", transactions);
+
     return (
         <div className=" ">
             {visibleTransactions.length === 0 && (
