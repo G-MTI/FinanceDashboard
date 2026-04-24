@@ -9,13 +9,24 @@ Features
 - Chart visualization
 - Search transactions by keyword
 - Sort transactions (recent / old)
-- Data saved in localStorage
 - Export transactions as PDF
+
+Data
+- User registration and login (JWT authentication)
+- Personal transactions saved on backend
+- Guest mode with localStorage
+- Separate data between guest and authenticated users
   
 Used technologies
-- React (Vite)
-- TailwindCSS
-- Recharts
-- LocalStorage
-- Context API
-- jsPDF
+- Frontend
+    - React (Vite)
+    - TailwindCSS
+    - Recharts
+    - Context API
+    - jsPDF
+    - LocalStorage (guest mode)
+- Backend
+    -Node.js
+    - Express
+    - JWT (authentication)
+    - bcrypt (password hashing)
