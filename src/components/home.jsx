@@ -24,19 +24,19 @@ const Home = () => {
             <div className="flex flex-wrap gap-8 mt-8 justify-center" >
                 <Link to="/app">
                     <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick={() => setMode ("guest")}>
-                        continue as a guest
+                        Continue as a guest
                     </button>
                 </Link>
                 <div className="flex gap-8">
                     <Link to="/login">
                         <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick={() => setMode ("user")}>
-                            login
+                            Login
                         </button>
                     </Link>
 
                     <Link to="/register">
                         <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick={() => setMode ("user")}>
-                            register
+                            Register
                         </button>
                     </Link>
                 </div>
