@@ -16,28 +16,31 @@ const Home = () => {
     }
 
     return (
-        <div className="min-h-screen flex flex-col justify-center items-center gap-4">
-            <Link to="/app">
-                <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick={() => setMode ("guest")}>
-                    continue as a guest
-                </button>
-            </Link>
-            <div className="flex gap-4">
-                <Link to="/login">
-                    <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick={() => setMode ("user")}>
-                        login
+        <div className="min-h-screen flex flex-col justify-center items-center mr-24 ml-24 mt-16">
+            <p className="max-w-150 text-center ">
+                Finance Dashboard is a web app for quickly and easily tracking your income and expenses.
+                You can manage your transactions, organize them by category, and view your data at any time.
+                Log in to permanently save your data, or try guest mode to get started right away without registering.</p>
+            <div className="flex flex-wrap gap-8 mt-8 justify-center" >
+                <Link to="/app">
+                    <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick={() => setMode ("guest")}>
+                        continue as a guest
                     </button>
                 </Link>
+                <div className="flex gap-8">
+                    <Link to="/login">
+                        <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick={() => setMode ("user")}>
+                            login
+                        </button>
+                    </Link>
 
-                <Link to="/register">
-                    <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick={() => setMode ("user")}>
-                        register
-                    </button>
-                </Link>
+                    <Link to="/register">
+                        <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick={() => setMode ("user")}>
+                            register
+                        </button>
+                    </Link>
+                </div>
             </div>
-
-            
-
             
         </div>
     )

@@ -21,23 +21,28 @@ const Login = () => {
 };
 
     return (
-        <div>
-            <input
-                type = "email" 
-                placeholder = "Email"
-                onChange = {(e) => setEmail(e.target.value)}
-            />
-            <input
-                type = "password"
-                placeholder = "Password"
-                onChange={(p) => setPassword (p.target.value)}
-            />
-            <button onClick = {handleSubmit}>
-                Login
-            </button>
+        <div className="flex flex-wrap justify-center gap-8">
+            <div className="flex flex-wrap gap-8 justify-center" >
+                <input    
+                    className="border-1 border-gray-300 p-4 rounded-3xl"
+                    type = "email" 
+                    placeholder = "Email"
+                    onChange = {(e) => setEmail(e.target.value)}
+                />
+                <input
+                    className="border-1 border-gray-300 p-4 rounded-3xl"
+                    type = "password"
+                    placeholder = "Password"
+                    onChange={(p) => setPassword (p.target.value)}
+                />
+            </div>
+            <div className="flex gap-8 justify-center">
+                <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick = {handleSubmit}>
+                    Login
+                </button>
 
-            <Link to="/Register">Register here</Link>
-
+                <Link className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" to="/Register">Register here</Link>
+            </div>
         </div> 
     );
 

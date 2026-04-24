@@ -33,17 +33,12 @@ const handleLogout = () => {
             <nav className="max-w-screen container flex items-center left-0 px-12 right-0 top-0 justify-between mx-auto">
                 {/*schiaccio cambia tema sito?*/}
                 <a href="#" className="text-5xl font-bold text-center">
-                    Expense Tracker
+                    Finance Dashboard
                 </a>
                 <button onClick={handleLogout}>
-                    Logout
+                    Exit
                 </button>
-
-                {/*Desktop*/}
                 
-                <div className="hidden md:flex items-center gap-6">
-                    
-                </div>
             </nav>
         </header>
     )

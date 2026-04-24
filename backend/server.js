@@ -9,12 +9,16 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 app.use(express.json());
     
 
 const SECRET = process.env.SECRET; 
-const PORT = process.env.PORT;
+if (!SECRET) throw new Error("SECRET missing");
+
+const PORT = process.env.PORT || 5000;;
 
 let users = [];
 let transactions = [];
@@ -93,12 +97,10 @@ app.get("/transactions", authenticate, (req, res) => {
     const userTransactions = transactions.filter(x => x.userId === req.userId);
     res.json(userTransactions);
 });
-
+ 
 
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server is running`);
 });
-
-console.log("ALL TX:", transactions);
 
