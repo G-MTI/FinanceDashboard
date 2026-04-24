@@ -97,10 +97,10 @@ app.get("/transactions", authenticate, (req, res) => {
     const userTransactions = transactions.filter(x => x.userId === req.userId);
     res.json(userTransactions);
 });
-
+ 
 
 
 app.listen(PORT, () => {
-  console.log(`Server running`);
+  console.log(`Server is running`);
 });
 
