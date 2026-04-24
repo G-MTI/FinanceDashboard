@@ -23,9 +23,9 @@ const NavbarOut = () =>{
             <nav className="max-w-screen container flex items-center left-0 px-12 right-0 top-0 justify-between mx-auto">
                 {/*schiaccio cambia tema sito?*/}
                 
-                <Link to="/" className="flex justify-center ">
+                <Link to="/app" className="flex justify-center ">
                     <p className="text-5xl font-bold text-center">
-                        Expense Tracker
+                        FinanceDashboard
                     </p>
                 
                 </Link>

@@ -21,22 +21,24 @@ const Login = () => {
 };
 
     return (
-        <div>
-            <input
+        <div className="flex gap-4">
+            <input    
+                className="border-1 border-gray-300 p-4 rounded-3xl"
                 type = "email" 
                 placeholder = "Email"
                 onChange = {(e) => setEmail(e.target.value)}
             />
             <input
+                className="border-1 border-gray-300 p-4 rounded-3xl"
                 type = "password"
                 placeholder = "Password"
                 onChange={(p) => setPassword (p.target.value)}
             />
-            <button onClick = {handleSubmit}>
+            <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick = {handleSubmit}>
                 Login
             </button>
 
-            <Link to="/Register">Register here</Link>
+            <Link className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" to="/Register">Register here</Link>
 
         </div> 
     );

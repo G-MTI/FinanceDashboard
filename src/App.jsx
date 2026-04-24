@@ -26,7 +26,7 @@ function App() {
         <Route path="/login" element={
           <>
             <NavbarOut />
-            <div className=" min-h-screen flex justify-center items-center overflow-hidden max-w-screen mt-32">
+            <div className=" min-h-screen flex justify-center items-center overflow-hidden max-w-screen">
               <Login/> 
             </div>
           </>
@@ -35,7 +35,7 @@ function App() {
         <Route path="/register" element={
           <>
             <NavbarOut />
-            <div className=" min-h-screen flex justify-center items-center overflow-hidden max-w-screen mt-32">
+            <div className=" min-h-screen flex justify-center items-center overflow-hidden max-w-screen">
               <Register/> 
             </div>
           </>

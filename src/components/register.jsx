@@ -23,11 +23,13 @@ const Register = () => {
     return (
         <form onSubmit={handleSubmit} className="flex gap-4">
             <input
+                className="border-1 border-gray-300 p-4 rounded-3xl"
                 type ="email"
                 placeholder="Email"
                 onChange = {(e) => setEmail(e.target.value)}
             />
             <input
+                className="border-1 border-gray-300 p-4 rounded-3xl"
                 type = "password"
                 placeholder="Password"
                 onChange = {(p) => setPassword(p.target.value)}
