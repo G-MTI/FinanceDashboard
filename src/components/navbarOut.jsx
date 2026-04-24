@@ -25,7 +25,7 @@ const NavbarOut = () =>{
                 
                 <Link to="/app" className="flex justify-center ">
                     <p className="text-5xl font-bold text-center">
-                        FinanceDashboard
+                        Finance Dashboard
                     </p>
                 
                 </Link>
