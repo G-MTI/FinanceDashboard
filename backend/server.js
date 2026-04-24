@@ -16,7 +16,9 @@ app.use(express.json());
     
 
 const SECRET = process.env.SECRET; 
-const PORT = process.env.PORT;
+if (!SECRET) throw new Error("SECRET missing");
+
+const PORT = process.env.PORT || 5000;;
 
 let users = [];
 let transactions = [];
@@ -99,8 +101,6 @@ app.get("/transactions", authenticate, (req, res) => {
 
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server running`);
 });
-
-console.log("ALL TX:", transactions);
 
