@@ -19,7 +19,3 @@ Used technologies
 - LocalStorage
 - Context API
 - jsPDF
-<<<<<<< HEAD
-
-=======
->>>>>>> 19414bf14821129cd846904f37155c1524be6a38
