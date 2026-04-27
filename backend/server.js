@@ -24,6 +24,7 @@ let users = [];
 let transactions = [];
 
 app.post("/register", async (req, res) => {
+    const {email, password} = req.body;
 
     const existUser = users.find(x => x.email === email);
     if (existUser) return res.status(400).json({message: "User already exists, try to login"});
@@ -40,6 +41,7 @@ app.post("/register", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
+    const {email, password} = req.body;
 
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) return res.status(401).json({message: "Invalid credentials"});
