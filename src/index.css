@@ -6,6 +6,7 @@
   --hover: #3C83F6;
   --red: #EB1E1E;
   --light-red: #EF4343;
+  --color-white: #d3d3d3;
 }
 
 @layer base{
@@ -26,6 +27,12 @@
 
   html {
     scroll-behavior: smooth;
+  }
+
+
+  option {
+    background-color: var(--color-background);
+    color: var(--color-white);
   }
 }
 
