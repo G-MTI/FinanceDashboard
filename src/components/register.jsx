@@ -4,10 +4,27 @@ import {registerUser, loginUser} from "../utili/api";
 const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    
 
     const handleSubmit = async (x) => {
         x.preventDefault();
 
+        if (!email) {
+            alert("Email is required");
+            return;
+        }
+
+        if (!password) {
+            alert("Password is required");
+            return;
+        }
+
+        const isValid = /\S+@\S+\.\S/.test(email);
+
+        if (!isValid) {
+            alert("Invalid email format");
+            return
+        }
 
         try {
             await registerUser(email, password);
@@ -15,8 +32,8 @@ const Register = () => {
             window.location.href = "/";
         }   catch (err) {
             alert(err.message);
+            return
         }
-
     };
 
 
@@ -25,7 +42,7 @@ const Register = () => {
             <div className="flex flex-wrap gap-8 justify-center" >
                 <input
                     className="border-1 border-gray-300 p-4 rounded-3xl"
-                    type ="email"
+                    type= "text"
                     placeholder="Email"
                     onChange = {(e) => setEmail(e.target.value)}
                 />
@@ -35,10 +52,12 @@ const Register = () => {
                     placeholder="Password"
                     onChange = {(p) => setPassword(p.target.value)}
                 />
-
             </div>
             
-            <button type="submit" className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold">
+            <button 
+                type="submit" 
+                className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold"
+            >
                 Register
             </button>
         </form>
