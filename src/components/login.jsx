@@ -12,11 +12,29 @@ const Login = () => {
     const { login } = useAppContext();
 
     const handleSubmit = async () => {
-  try {
-    await login(email, password);
-    navigate("/app");
-  } catch (err) {
-    console.error(err.message);
+
+        if (!email) {
+            alert("Email is required");
+            return;
+        }
+
+        if (!password) {
+            alert("Password is required");
+            return;
+        }
+
+        const isValid = /\S+@\S+\.\S/.test(email);
+
+        if (!isValid) {
+            alert("Invalid email format");
+            return
+        }
+
+        try {
+            await login(email, password);
+            navigate("/app");
+        }   catch (err) {
+            alert(err.message);
   }
 };
 
@@ -25,7 +43,6 @@ const Login = () => {
             <div className="flex flex-wrap gap-8 justify-center" >
                 <input    
                     className="border-1 border-gray-300 p-4 rounded-3xl"
-                    type = "email" 
                     placeholder = "Email"
                     onChange = {(e) => setEmail(e.target.value)}
                 />

@@ -10,7 +10,10 @@ const categoryForm = () => {
     const handleInvio = (x) => {
         x.preventDefault();  
 
-        if (!categoryName || !categoryColor) return;
+        if (!categoryName || !categoryColor){
+            alert("Please fill in all fields");
+            return; 
+        }
 
         const newCategory = {
             id: Date.now(),

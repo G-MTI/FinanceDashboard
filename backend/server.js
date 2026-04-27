@@ -10,7 +10,7 @@ const saltRounds = 10;
 
 const app = express();
 app.use(cors({
-  origin: "*"
+    origin: "*"
 }));
 app.use(express.json());
     
@@ -18,15 +18,12 @@ app.use(express.json());
 const SECRET = process.env.SECRET; 
 if (!SECRET) throw new Error("SECRET missing");
 
-const PORT = process.env.PORT || 5000;;
+const PORT = process.env.PORT || 5000;
 
 let users = [];
 let transactions = [];
 
 app.post("/register", async (req, res) => {
-    const {email, password} = req.body;
-
-    if (!email || !password) return res.status(400).json({message: "Email and password are required"});
 
     const existUser = users.find(x => x.email === email);
     if (existUser) return res.status(400).json({message: "User already exists, try to login"});
@@ -43,10 +40,12 @@ app.post("/register", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-    const {email, password} = req.body;
 
     const user = users.find(x => x.email === email);
-    if (!user) return res.status(401).json({message: "Invalid credentials"});
+        if (!user) {
+            alert("Invalid credentials");
+            return;
+        }
 
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) return res.status(401).json({message: "Invalid credentials"});
