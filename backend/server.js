@@ -41,7 +41,10 @@ app.post("/register", async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-    const {email, password} = req.body;
+     const {email, password} = req.body;
+
+    const user = users.find(x => x.email === email);
+    if (!user) return res.status(401).json({message: "Invalid credentials"});
 
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) return res.status(401).json({message: "Invalid credentials"});
