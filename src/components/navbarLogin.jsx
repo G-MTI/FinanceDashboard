@@ -43,11 +43,8 @@ const Navbar = () =>{
                         <button onClick={handleLogout} className="hover:scale-120 hover:font-bold duration-300 cursor-pointer ">
                             Exit
                         </button>
-                        <button onClick={() => navigate("/login")} className=" hover:scale-120 hover:font-bold duration-300 cursor-pointer">
-                            Login
-                        </button>
-                        <button onClick={() => navigate("/register")} className="  hover:scale-120 hover:font-bold duration-300 cursor-pointer">
-                            Register
+                        <button onClick={() => navigate("/settings")} className=" hover:scale-120 hover:font-bold duration-300 cursor-pointer">
+                            Settings
                         </button>
                     </div>
                 </div>
@@ -66,11 +63,8 @@ const Navbar = () =>{
                             <button onClick={handleLogout} className="hover:scale-120 duration-300 cursor-pointer ">
                                 Exit
                             </button>
-                            <button onClick={() => navigate("/login")} className=" hover:scale-120 duration-300 cursor-pointer">
-                                Login
-                            </button>
-                            <button onClick={() => navigate("/register")} className="  hover:scale-120 duration-300 cursor-pointer">
-                                Register
+                            <button onClick={() => navigate("/settings")} className=" hover:scale-120 duration-300 cursor-pointer">
+                                Setting
                             </button>
                         </div>
                     </div>

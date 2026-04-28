@@ -12,6 +12,7 @@ const app = express();
 app.use(cors({
     origin: "*"
 }));
+
 app.use(express.json());
     
 
@@ -22,6 +23,7 @@ const PORT = process.env.PORT || 5000;
 
 let users = [];
 let transactions = [];
+let categories = [];
 
 app.post("/register", async (req, res) => {
     const {email, password} = req.body;
@@ -36,7 +38,6 @@ app.post("/register", async (req, res) => {
         email, 
         password: hashedPassword,
     });
-
     res.json ({message: "User registered succesfully"});
 });
 
@@ -84,21 +85,57 @@ app.post("/transactions", authenticate, (req, res) => {
         userId: req.userId,
         ...req.body
     };
-
     transactions.push(newTransaction);
 
     res.json(newTransaction);
 });
 
-
 app.get("/transactions", authenticate, (req, res) => {
     const userTransactions = transactions.filter(x => x.userId === req.userId);
     res.json(userTransactions);
 });
+
+app.post("/categories", authenticate, (req, res) => {
+    const newCategory = {
+        id: Date.now(),
+        userId: req.userId,
+        ...req.body
+    };
+    categories.push(newCategory);
+
+    res.json(newCategory);
+});
  
+app.get("/categories", authenticate, (req, res) => {
+    const userCategories = categories.filter(x => x.userId === req.userId);
+    res.json(userCategories);
+});
 
+app.delete("/transactions/:id", authenticate, (req, res) => {
+    const id = Number(req.params.id);
 
+    transactions = transactions.filter(
+        (t) => !(t.id === id && t.userId === req.userId)
+    );
+    res.json({ message: "Transaction deleted" });
+});
+
+app.delete("/transactions", authenticate, (req, res) => {
+    transactions = transactions.filter(
+        (t) => t.userId !== req.userId
+    );
+    res.json({ message: "All transactions deleted" });
+});
+
+app.delete("/categories/:id", authenticate, (req, res) => {
+    const id = Number(req.params.id);
+    categories = categories.filter(
+        (t) => !(t.id === id && t.userId === req.userId)
+    );
+    res.json({ message: "Category deleted" });
+});
+ 
 app.listen(PORT, () => {
-  console.log(`Server is running`);
+    console.log(`Server is running`);
 });
 

@@ -39,6 +39,11 @@ export const getTransactions = async () => {
   return await authFetch(`${API}/transactions`);
 };
 
+export const getCategories = async () => {
+  return await authFetch(`${API}/categories`);
+};
+
 export const logoutUser = () => {
   localStorage.removeItem("token");
 };
+

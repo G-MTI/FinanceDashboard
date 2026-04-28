@@ -6,19 +6,20 @@ import Chart from "./components/chart";
 import CategoryForm from "./components/categoryForm";
 import CategoryList from "./components/categoryList";
 import Navbar from "./components/navbar";
+import NavbarLogin from "./components/navbarLogin";
 import {Routes, Route} from "react-router-dom";
 import AllTransaction from "./components/allTransaction";
 import NavbarOut from "./components/navbarOut";
 import Home from "./components/home";
 import Login from "./components/login";
 import Register from "./components/register";
+import SettingsForm from "./components/settingsForm";
 
 function App() {
   return (
       <Routes>
         <Route path="/" element={
           <>
-            <Navbar />
             <Home/>
           </>
         }/>
@@ -28,6 +29,15 @@ function App() {
             <NavbarOut />
             <div className=" min-h-screen flex justify-center items-center overflow-hidden max-w-screen">
               <Login/> 
+            </div>
+          </>
+        }/>
+
+        <Route path="/settings" element={
+          <>
+            <NavbarOut />
+            <div className=" min-h-screen flex justify-center items-center overflow-hidden max-w-screen">
+              <SettingsForm/> 
             </div>
           </>
         }/>
@@ -52,8 +62,20 @@ function App() {
               <Chart/>
               <CategoryForm/>
               <CategoryList/>
-              
+            </>
+        }/>
 
+        <Route path="/appLogin" element={
+          <>
+            <NavbarLogin />
+            <div >
+              <Budget/>
+              </div>
+              <Form/>
+              <List/>
+              <Chart/>
+              <CategoryForm/>
+              <CategoryList/>
             </>
         }/>
 

@@ -11,13 +11,14 @@ const Budget = () => {
             totalIncome += x.utile
         }
         else if (x.type === "Expense") {
+
             totalExpense += x.utile
         };
     });
 
  
     const budget = totalIncome - totalExpense;
-
+    
     return (
         <div className=" min-h-screen flex flex-col justify-center items-center overflow-hidden max-w-screen">
             <div className="flex flex-col items-center justify-center mb-8">
@@ -28,9 +29,9 @@ const Budget = () => {
                     </p>
                 </div>
                
-                <div className=" flex flex-wrap justify-center gap-8 font-bold mt-8">
-                    <p className=" text-2xl">Total Income: {totalIncome}€</p>
-                    <p className="text-2xl">Total Expences: {totalExpense}€</p>
+                <div className=" flex flex-wrap justify-center gap-2 font-bold mt-8">
+                    <p className=" text-2xl px-8">Total Income: {totalIncome}€</p>
+                    <p className="text-2xl px-8">Total Expences: {totalExpense}€</p>
                 </div>
             </div>
 

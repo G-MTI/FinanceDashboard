@@ -20,6 +20,7 @@ const form = () => {
 
         const newTransaction = {
             id: Date.now(),
+            createdAt: Date.now() ,
             utile: parseFloat(utile),
             type,
             category,
