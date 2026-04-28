@@ -1,12 +1,14 @@
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
-import {loginUser} from "../utili/api";
+import { Eye } from "lucide-react";
+import { EyeOff } from "lucide-react";
 
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
     const { login } = useAppContext();
@@ -32,7 +34,7 @@ const Login = () => {
 
         try {
             await login(email, password);
-            navigate("/app");
+            navigate("/appLogin");
         }   catch (err) {
             alert(err.message);
   }
@@ -46,12 +48,22 @@ const Login = () => {
                     placeholder = "Email"
                     onChange = {(e) => setEmail(e.target.value)}
                 />
-                <input
-                    className="border-1 border-gray-300 p-4 rounded-3xl"
-                    type = "password"
+                <div className="flex border-1 border-gray-300 p-4 rounded-3xl">
+                    <input
+                    
+                    type = {showPassword ? "text" : "password"}
                     placeholder = "Password"
                     onChange={(p) => setPassword (p.target.value)}
-                />
+                    />
+                    <button
+                    className="flex items-center"
+                    type ="button"
+                    onClick = {() => setShowPassword(!showPassword)} 
+                    >
+                        {showPassword ? <EyeOff /> : <Eye />}
+                    </button>
+                </div>
+                
             </div>
             <div className="flex gap-8 justify-center">
                 <button className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold" onClick = {handleSubmit}>

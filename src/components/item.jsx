@@ -14,10 +14,10 @@ const Item = ({ transaction }) => {
         <p id="type" className="flex">
           {transaction.type} 
         </p>
-        <p>{new Date(transaction.id).toLocaleDateString(
+        <p>{new Date(transaction.createdAt).toLocaleDateString(
           "en-GB",
           {
-            day: "2-digit",
+            day: "2-digit", 
             month: "short",
             year: "numeric",
           }

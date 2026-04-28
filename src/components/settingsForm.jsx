@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAppContext } from "../context/AppContext";
 
-const categoryForm = () => {
+const settingsForm = () => {
     const {addCategory} = useAppContext();
 
     const [categoryName, setCategoryName] = useState("");
@@ -39,7 +39,7 @@ const categoryForm = () => {
                 className="border-1 border-gray-300 p-4 rounded-3xl"
             />
             <div className="flex flex-row items-center gap-4 border-1 p-4 border-gray-300 rounded-3xl">
-                <p>Select a color</p>
+                
                 <input
                 type="color"
                 value={categoryColor}
@@ -60,4 +60,4 @@ const categoryForm = () => {
     
 };
 
-export default categoryForm;
+export default settingsForm;

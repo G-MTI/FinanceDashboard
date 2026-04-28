@@ -1,7 +1,8 @@
 import { useAppContext } from "../context/AppContext";
 
 const categoryItem = ({ category }) => {
-  const { delTransaction } = useAppContext();
+  const { delCategory } = useAppContext();
+  const {categories} = useAppContext();
 
   return (   
     <div id="item" className="flex justify-center mb-2 gap-4">
@@ -12,10 +13,10 @@ const categoryItem = ({ category }) => {
         </p>
         <span className="w-5 h-5 rounded-full"style={{ backgroundColor: category.categoryColor }} ></span>
       </div>
-
+ 
       <div className="flex">
         <button
-          onClick={() => delTransaction(category.id)}
+          onClick={() => delCategory(category.id)}
           className="flex text-red-500 font-bold rounded-3xl cursor-pointer"
         >
           X
