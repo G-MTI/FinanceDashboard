@@ -2,57 +2,53 @@ import { useState } from "react";
 import { useAppContext } from "../context/AppContext";
 
 const settingsForm = () => {
-    const {addCategory} = useAppContext();
-
-    const [categoryName, setCategoryName] = useState("");
-    const [categoryColor, setCategoryColor] = useState("#3584e4");
+    const {currency, setCurrency} = useAppContext();
+    const [valuta, setValuta] = useState ("");
 
     const handleInvio = (x) => {
-        x.preventDefault();  
+        x.preventDefault(); 
 
-        if (!categoryName || !categoryColor) return;
+        const isValid =["€", "$", "£", "¥", "₹", "₽", "₿"];
 
-        const newCategory = {
-            id: Date.now(),
-            categoryName,
-            categoryColor,
-        };
+        if (!isValid.includes(valuta)) {
+            alert("Choose between valid currency €, £, $, ₹, ¥, ₿, ₽");
+            return
+        }
 
-        addCategory(newCategory);
-
-    
-        setCategoryName("");
-        setCategoryColor("");
+        setCurrency(valuta);
+        setValuta("")
     };
 
+
     return (<section id="categoryForm" className="pt-32 pb-8">
-        <h1 className="font-bold text-3xl flex justify-center mb-8">Category list</h1>
+        <h1 className="font-bold text-3xl flex justify-center mb-8">Settings</h1>
         <form 
         onSubmit={handleInvio} 
-        className="flex flex-wrap justify-center items-center gap-8"
-        >   
-            <input
-                type="text"
-                placeholder="Category name"
-                value={categoryName}
-                onChange={(x) => setCategoryName(x.target.value)}
-                className="border-1 border-gray-300 p-4 rounded-3xl"
-            />
-            <div className="flex flex-row items-center gap-4 border-1 p-4 border-gray-300 rounded-3xl">
+        className="flex flex-col gap-8"
+        > 
+            <div className="flex flex-row items-center gap-4 border-1 border-gray-300 rounded-3xl">
+                <div className=" flex gap-2 px-4 border-r-1 border-gray-300 py-4 ">
+                    <p>
+                        Current currency:
+                    </p>
+                    <p>
+                        {currency}
+                    </p>  
+                </div>
                 
                 <input
-                type="color"
-                value={categoryColor}
-                onChange={(x) => setCategoryColor(x.target.value)}
-                className="border-1 border-gray-300 rounded-3xl"
-            />
+                    type="text"
+                    placeholder="Choose a new currency"
+                    value={valuta}
+                    onChange={(x) => setValuta(x.target.value)}
+                    className="mr-4"
+                />
             </div>
-    
             <button 
                 type="submit"
-                className="bg-blue-500 p-4 rounded-3xl text-white font-bold"
+                className="bg-[var(--button)] hover:bg-[var(--hover)] cursor-pointer p-4 rounded-3xl text-white font-bold"
             >
-                Add category
+                Save settings
             </button>
         </form>
     </section>
