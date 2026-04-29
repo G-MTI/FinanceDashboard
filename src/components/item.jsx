@@ -2,6 +2,7 @@ import { useAppContext } from "../context/AppContext";
 
 const Item = ({ transaction }) => {
   const { delTransaction } = useAppContext();
+  const {currency } = useAppContext();
 
   return (   
     <div id="item" className="flex justify-center mb-2 gap-4">
@@ -32,8 +33,7 @@ const Item = ({ transaction }) => {
               : "text-green-500"
           }
         >
-            {/*poi mettere il € come variabile, l'utent sceglie la moneta*/}
-          {transaction.utile}€ 
+          {transaction.utile}{currency}
         </p>
 
         <button

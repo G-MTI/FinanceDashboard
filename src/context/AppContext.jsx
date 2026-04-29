@@ -22,7 +22,7 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [categories, setCategories] = setLocalStorage("guest_categories", []);
-  {/*const [settings, setSettings] = setLocalStorage("settings", [])*/}
+  const [currency, setCurrency] = setLocalStorage("currency", "€");
   const [transactions, setTransactions] = setLocalStorage("guest_transactions", []);
 
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
@@ -207,6 +207,9 @@ useEffect(() => {
                 login,
 
                 logout,
+
+                currency,
+                setCurrency,
             }}
         >
            {children}

@@ -2,6 +2,7 @@ import { useAppContext } from "../context/AppContext";
 
 const Budget = () => {
     const {transactions} = useAppContext();
+    const {currency} = useAppContext();
 
     let totalIncome = 0;
     let totalExpense = 0;
@@ -25,13 +26,13 @@ const Budget = () => {
                 <div className="flex justify-center items-center gap-4">
                     <p className="text-5xl font-bold">Balance:</p>
                     <p className={budget >= 0 ? "text-green-500 font-bold text-5xl" : "text-red-500 font-bold text-3xl"}>
-                        {budget}€
+                        {budget}{currency}
                     </p>
                 </div>
                
                 <div className=" flex flex-wrap justify-center gap-2 font-bold mt-8">
-                    <p className=" text-2xl px-8">Total Income: {totalIncome}€</p>
-                    <p className="text-2xl px-8">Total Expences: {totalExpense}€</p>
+                    <p className=" text-2xl px-8">Total Income: {totalIncome}{currency}</p>
+                    <p className="text-2xl px-8">Total Expences: {totalExpense}{currency}</p>
                 </div>
             </div>
 

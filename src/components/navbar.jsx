@@ -49,6 +49,9 @@ const Navbar = () =>{
                         <button onClick={() => navigate("/register")} className="  hover:scale-120 hover:font-bold duration-300 cursor-pointer">
                             Register
                         </button>
+                        <button onClick={() => navigate("/settings")} className="  hover:scale-120 hover:font-bold duration-300 cursor-pointer">
+                            Settings
+                        </button>
                     </div>
                 </div>
 
@@ -71,6 +74,9 @@ const Navbar = () =>{
                             </button>
                             <button onClick={() => navigate("/register")} className="  hover:scale-120 duration-300 cursor-pointer">
                                 Register
+                            </button>
+                            <button onClick={() => navigate("/settings")} className="  hover:scale-120 hover:font-bold duration-300 cursor-pointer">
+                                Settings
                             </button>
                         </div>
                     </div>
